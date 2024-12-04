@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@700&family=Syne+Mono:wght@400&display=swap');
+
+.header {
+    position: relative; /* Add this line */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 clamp(10px, 3vw, 20px);
+    height: clamp(60px, 10vh, 80px);
+    background-color: #000000;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 2vw, 15px);
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.title {
+    font-size: clamp(24px, 5vw, 72px);
+    font-family: 'Corinthia', cursive;
+    margin: 0;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(8px, 2vw, 20px);
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.icon {
+    position: relative;
+    cursor: pointer;
+    color: white;
+    font-size: clamp(16px, 2vw, 30px);
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    padding: clamp(3px, 1vw, 5px);
+}
+
+.icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    color: #667eea;
+}
+
+.menuContainer {
+    position: relative;
+    display: inline-block; /* Ensure it wraps around the button */
+}
+
+.menuButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: clamp(20px, 3vw, 24px);
+    cursor: pointer;
+    padding: clamp(5px, 2vw, 8px);
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    position: absolute;
+    left: 0;
+    top: 100%; /* Position it right below the button */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    width: auto; /* Allow the width to scale automatically */
+    min-width: 200px; /* Set a minimum width */
+    margin: 0; /* Remove margin */
+}
+
+.menuButton:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    color: #667eea;
+}
+
+.menuVisible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu ul {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: clamp(10px, 2vw, 12px) clamp(15px, 3vw, 20px);
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: clamp(12px, 2vw, 14px);
+    text-align: center;
+}
+
+.menu li:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.username {
+    margin-right: clamp(5px, 2vw, 10px);
+    color: #f10404;
+    font-size: clamp(12px, 1.5vw, 20px);
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    max-width: clamp(80px, 20vw, 150px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.showtimesText {
+    font-size: clamp(14px, 1.8vw, 25px);
+    font-family: "Syne Mono", monospace;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration: none;
+    padding: clamp(5px, 2vw, 8px) clamp(8px, 2vw, 12px);
+    white-space: nowrap;
+    position: relative;
+}
+
+.showtimesText::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.showtimesText:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    color: #6366f1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .header {
+        flex-wrap: nowrap;
+    }
+
+    .headerContent,
+    .icons {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0 clamp(5px, 2vw, 10px);
+        height: clamp(50px, 8vh, 60px);
+    }
+
+    .menu {
+        left: 5px;
+        right: 5px;
+        width: calc(100% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0 clamp(3px, 1vw, 8px);
+    }
+
+    .title {
+        font-size: clamp(20px, 4vw, 32px);
+    }
+
+    .username {
+        max-width: clamp(60px, 15vw, 100px);
+    }
+
+    .showtimesText {
+        font-size: clamp(12px, 1.5vw, 16px);
+    }
+}
+
+@media (max-width: 360px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 5px;
+    }
+
+    .headerContent,
+    .icons {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .title {
+        font-size: clamp(18px, 3vw, 24px);
+    }
+
+    .username {
+        max-width: clamp(50px, 10vw, 80px);
+    }
+}
